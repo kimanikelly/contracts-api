@@ -1,0 +1,23 @@
+{
+  "name": "contracts-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kimanikelly/contracts-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kimanikelly/contracts-api/issues"
+  },
+  "homepage": "https://github.com/kimanikelly/contracts-api#readme",
+  "devDependencies": {
+    "typescript": "^4.6.3"
+  }
+}
