@@ -19,5 +19,10 @@
   "homepage": "https://github.com/kimanikelly/contracts-api#readme",
   "devDependencies": {
     "typescript": "^4.6.3"
+  },
+  "dependencies": {
+    "@kimanikelly/core-contracts": "^1.0.0",
+    "nodemon": "^2.0.15",
+    "ts-node": "^10.7.0"
   }
 }
