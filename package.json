@@ -24,6 +24,7 @@
   "dependencies": {
     "@kimanikelly/core-contracts": "^1.0.1",
     "express": "^4.17.3",
+    "mocha": "^9.2.2",
     "nodemon": "^2.0.15",
     "ts-node": "^10.7.0"
   }
