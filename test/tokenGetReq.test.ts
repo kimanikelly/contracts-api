@@ -1,14 +1,13 @@
 import "dotenv/config";
 import axios from "axios";
 
-import ethers from "ethers";
+import { ethers } from "ethers";
 
 import { expect } from "chai";
 
 import { Token__factory } from "@kimanikelly/core-contracts";
 import rinkebyAddress from "@kimanikelly/core-contracts/dist/addresses/4.json";
 import { SigningKey } from "ethers/lib/utils";
-import { Provider } from "@ethersproject/abstract-provider";
 
 const fetchContractData = async () => {
   return (await axios.get("http://localhost:3001/tokenContract")).data;
@@ -17,9 +16,15 @@ const fetchContractData = async () => {
 describe("/tokenContract GET Request", () => {
   let contract: any;
   let provider: any;
+  let signer: any;
 
   beforeEach(async () => {
     contract = await fetchContractData();
+    provider = new ethers.providers.JsonRpcProvider(process.env.RINKEBY_URL);
+    signer = new ethers.Wallet(
+      process.env.PRIVATE_KEY as unknown as SigningKey,
+      provider
+    );
   });
 
   it("Should get the addresses for Token.sol", async () => {
@@ -31,13 +36,7 @@ describe("/tokenContract GET Request", () => {
   });
 
   it("Should be able to create a Token.sol contract instance with the Typechain bindings", async () => {
-    const testnetUrl = process.env.RINKEBY_URL;
-
-    const provider = new ethers.providers.JsonRpcProvider(testnetUrl, 4);
-
-    console.log(provider);
-
-    // const token = Token__factory.connect(contract.addresses.rinkeby, signer);
-    // console.log(token);
+    const token = Token__factory.connect(contract.addresses.rinkeby, signer);
+    console.log(token);
   });
 });
