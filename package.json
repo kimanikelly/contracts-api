@@ -22,7 +22,7 @@
     "typescript": "^4.6.3"
   },
   "dependencies": {
-    "@kimanikelly/core-contracts": "^1.0.0",
+    "@kimanikelly/core-contracts": "^1.0.1",
     "express": "^4.17.3",
     "nodemon": "^2.0.15",
     "ts-node": "^10.7.0"
