@@ -1,11 +1,11 @@
 import "dotenv/config";
 import axios from "axios";
 
-import { ethers } from "ethers";
+import { ethers, Signer } from "ethers";
 
 import { expect } from "chai";
 
-import { Token__factory } from "@kimanikelly/core-contracts";
+import { Token__factory, Token } from "@kimanikelly/core-contracts";
 import rinkebyAddress from "@kimanikelly/core-contracts/dist/addresses/4.json";
 import { SigningKey } from "ethers/lib/utils";
 
@@ -16,7 +16,7 @@ const fetchContractData = async () => {
 describe("/tokenContract GET Request", () => {
   let contract: any;
   let provider: any;
-  let signer: any;
+  let signer: Signer;
 
   before(async () => {
     contract = await fetchContractData();
@@ -43,14 +43,17 @@ describe("/tokenContract GET Request", () => {
 
   describe("#contract-instances", () => {
     it("Should be able to create a Token.sol contract instance with the Typechain bindings", async () => {
-      const token = Token__factory.connect(contract.addresses.rinkeby, signer);
+      const token: Token = Token__factory.connect(
+        contract.addresses.rinkeby,
+        signer
+      );
 
       expect(await token.name()).to.equal("Test Token");
       expect(await token.symbol()).to.equal("TT");
     });
 
     it("Should be able to create a Token.sol instance with the address and ABI", async () => {
-      const token = new ethers.Contract(
+      const token: Token = new ethers.Contract(
         contract.addresses.rinkeby,
         contract.abi,
         signer
