@@ -5,7 +5,7 @@
   "main": "index.ts",
   "scripts": {
     "build":"rm -rf dist && tsc",
-    "start":"ts-node index.ts",
+    "start":"node dist/index.js",
     "test": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha -r ts-node/register --timeout 100000 'test/**/*.ts'"
   },
   "repository": {
