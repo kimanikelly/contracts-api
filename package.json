@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "local":"npx nodemon index.ts",
+    "start":"npx ts-node index.ts",
     "test": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha -r ts-node/register --timeout 100000 'test/**/*.ts'"
   },
   "repository": {
@@ -34,5 +34,8 @@
     "mocha": "^9.2.2",
     "nodemon": "^2.0.15",
     "ts-node": "^10.7.0"
+  },
+  "engines": {
+    "node": "16.14.0"
   }
 }
