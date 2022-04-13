@@ -27,19 +27,17 @@ const fetchContractData = async () => {
 describe("/tokenContract GET Request", () => {
   let contract: any;
   let provider: any;
-  let signer: Signer;
+  let signer: any;
 
   before(async () => {
     contract = await fetchContractData();
 
-    //   Instantiates the Infura provider targeting the Rinkeby testnet
-    provider = new ethers.providers.JsonRpcProvider(process.env.RINKEBY_URL);
-
-    //   Creates a signer instance
-    signer = new ethers.Wallet(
-      process.env.PRIVATE_KEY as unknown as SigningKey,
-      provider
+    // Instantiates the Infura provider targeting the Rinkeby testnet
+    provider = new ethers.providers.JsonRpcProvider(
+      "https://rinkeby.infura.io/v3/b312d7cb723144e2b9741c7462c23b2d"
     );
+
+    signer = ethers.Wallet.createRandom();
   });
 
   describe("#response-data", () => {
@@ -64,7 +62,7 @@ describe("/tokenContract GET Request", () => {
       //   Creates a Token.sol contract instance with the Typechain bindings returned from @kimanikelly/core-contracts
       const token: Token = Token__factory.connect(
         contract.addresses.rinkeby,
-        signer
+        provider
       );
 
       // Verifies the Token contract was properly instantiated
@@ -77,7 +75,7 @@ describe("/tokenContract GET Request", () => {
       const token: Token = new ethers.Contract(
         contract.addresses.rinkeby,
         contract.abi,
-        signer
+        provider
       );
 
       // Verifies the Token contract was properly instantiated
