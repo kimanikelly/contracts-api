@@ -27,26 +27,37 @@ describe("/tokenContract GET Request", () => {
     );
   });
 
-  it("Should get the addresses for Token.sol", async () => {
-    expect(contract.addresses.rinkeby).to.equal(rinkebyAddress.token);
+  describe("#response-data", () => {
+    it("Should get the addresses for Token.sol", async () => {
+      expect(contract.addresses.rinkeby).to.equal(rinkebyAddress.token);
+    });
+
+    it("Should get the abi for Token.sol", async () => {
+      expect(contract.abi).to.eql(Token__factory.abi);
+    });
+
+    it("Should get the bytecode for Token.sol", async () => {
+      expect(contract.bytecode).to.equal(Token__factory.bytecode);
+    });
   });
 
-  it("Should get the bytecode for Token.sol", async () => {
-    expect(contract.bytecode).to.equal(Token__factory.bytecode);
-  });
+  describe("#contract-instances", () => {
+    it("Should be able to create a Token.sol contract instance with the Typechain bindings", async () => {
+      const token = Token__factory.connect(contract.addresses.rinkeby, signer);
 
-  it("Should be able to create a Token.sol contract instance with the Typechain bindings", async () => {
-    const token = Token__factory.connect(contract.addresses.rinkeby, signer);
+      expect(await token.name()).to.equal("Test Token");
+      expect(await token.symbol()).to.equal("TT");
+    });
 
-    expect(await token.name()).to.equal("Test Token");
-    expect(await token.symbol()).to.equal("TT");
-  });
+    it("Should be able to create a Token.sol instance with the address and ABI", async () => {
+      const token = new ethers.Contract(
+        contract.addresses.rinkeby,
+        contract.abi,
+        signer
+      );
 
-  it("Should be able to create a Token.sol instance with the address and ABI", async () => {
-    const token = new ethers.Contract(
-      contract.addresses.rinkeby,
-      contract.abi,
-      signer
-    );
+      expect(await token.name()).to.equal("Test Token");
+      expect(await token.symbol()).to.equal("TT");
+    });
   });
 });
