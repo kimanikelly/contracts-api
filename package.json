@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "start":"npx ts-node index.ts",
+    "start":"ts-node index.ts",
     "test": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha -r ts-node/register --timeout 100000 'test/**/*.ts'"
   },
   "repository": {
