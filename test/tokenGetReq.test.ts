@@ -33,9 +33,7 @@ describe("/tokenContract GET Request", () => {
     contract = await fetchContractData();
 
     // Instantiates the Infura provider targeting the Rinkeby testnet
-    provider = new ethers.providers.JsonRpcProvider(
-      "https://rinkeby.infura.io/v3/b312d7cb723144e2b9741c7462c23b2d"
-    );
+    provider = new ethers.providers.JsonRpcProvider(process.env.RINKEBY_URL);
 
     signer = ethers.Wallet.createRandom();
   });
