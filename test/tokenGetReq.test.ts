@@ -18,7 +18,7 @@ describe("/tokenContract GET Request", () => {
   let provider: any;
   let signer: any;
 
-  beforeEach(async () => {
+  before(async () => {
     contract = await fetchContractData();
     provider = new ethers.providers.JsonRpcProvider(process.env.RINKEBY_URL);
     signer = new ethers.Wallet(
@@ -37,6 +37,16 @@ describe("/tokenContract GET Request", () => {
 
   it("Should be able to create a Token.sol contract instance with the Typechain bindings", async () => {
     const token = Token__factory.connect(contract.addresses.rinkeby, signer);
-    console.log(token);
+
+    expect(await token.name()).to.equal("Test Token");
+    expect(await token.symbol()).to.equal("TT");
+  });
+
+  it("Should be able to create a Token.sol instance with the address and ABI", async () => {
+    const token = new ethers.Contract(
+      contract.addresses.rinkeby,
+      contract.abi,
+      signer
+    );
   });
 });
