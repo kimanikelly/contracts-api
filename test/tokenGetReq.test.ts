@@ -1,6 +1,3 @@
-// Imports the dotenv package and initializes it to allow reading of environment variables
-import "dotenv/config";
-
 // Imports the Axios package and will be used to perform GET requests to the /tokenContract endpoint
 import axios from "axios";
 
@@ -27,13 +24,15 @@ const fetchContractData = async () => {
 describe("/tokenContract GET Request", () => {
   let contract: any;
   let provider: any;
-  let signer: any;
+  let signer: Signer;
 
   before(async () => {
     contract = await fetchContractData();
 
     // Instantiates the Infura provider targeting the Rinkeby testnet
-    provider = new ethers.providers.JsonRpcProvider(process.env.RINKEBY_URL);
+    provider = new ethers.providers.JsonRpcProvider(
+      "https://rinkeby.infura.io/v3/b312d7cb723144e2b9741c7462c23b2d"
+    );
 
     signer = ethers.Wallet.createRandom();
   });
