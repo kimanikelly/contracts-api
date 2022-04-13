@@ -13,6 +13,11 @@ const app = express();
 // Defines the port the Express server will serve on
 const port = process.env.PORT || 3001;
 
+app.get("/", (req, res) => {
+  res.send(
+    "Hi, You've reached the homepage of the contract api if you would like to view the Token Addresses, ABI, and Bytecode please target the /tokenContract endpoint."
+  );
+});
 // GET request to return the address, abi, and bytecode of Token.sol
 app.get("/tokenContract", (req, res) => {
   res.json({
@@ -26,5 +31,5 @@ app.get("/tokenContract", (req, res) => {
 
 // Starts the Express server
 app.listen(port, () => {
-  console.log(`Listening on port: ${port}`);
+  console.log(`Listening on port: http://localhost:${port}`);
 });
