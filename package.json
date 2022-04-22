@@ -29,7 +29,7 @@
     "typescript": "^4.6.3"
   },
   "dependencies": {
-    "@kimanikelly/core-contracts": "^1.0.3",
+    "@kimanikelly/core-contracts": "^1.0.4",
     "@types/chai": "^4.3.0",
     "axios": "^0.26.1",
     "chai": "^4.3.6",
