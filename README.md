@@ -47,7 +47,7 @@ Returns the Address, ABI, and Bytecode of Token.sol as a JSON
 Returns the Address, ABI, and Bytecode of TTBank.sol as a JSON
 
 ```
-/tokenContract
+/ttBank
 ```
 
 ## Examples
