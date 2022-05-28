@@ -42,9 +42,9 @@ describe("/ttBank GET Request", () => {
       expect(contract.abi).to.eql(TTBank__factory.abi);
     });
 
-    // it("Should get the bytecode for Token.sol", async () => {
-    //   // The /tokenContract endpoint should return the same bytecode pacakged in @kimanikelly/core-contracts
-    //   expect(contract.bytecode).to.equal(Token__factory.bytecode);
-    // });
+    it("Should get the bytecode for TTBank.sol", async () => {
+      // The /ttBank endpoint should return the same bytecode pacakged in @kimanikelly/core-contracts
+      expect(contract.bytecode).to.equal(TTBank__factory.bytecode);
+    });
   });
 });
