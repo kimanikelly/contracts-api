@@ -34,7 +34,7 @@ app.get("/tokenContract", (req, res) => {
 
 // GET request to return the address, abi, and bytecode of TTBank.sol
 app.get("/ttBank", (req, res) => {
-  res.json({
+  res.status(200).json({
     addresses: {
       rinkeby: rinkebyAddress.ttBank,
     },
