@@ -4,7 +4,7 @@
 const axios = require("axios");
 
 axios
-  .get("https://kimanikelly-contractapi.herokuapp.com/tokenContract")
+  .get("https://kimanikelly-contractapi.herokuapp.com/endpoint")
   .then((res) => {
     console.log(res);
   })

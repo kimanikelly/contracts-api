@@ -36,6 +36,20 @@ npm test
 
 to begin the unit tests for `http://localhost:3001/tokenContract` and `http://localhost:3001/ttBank` .
 
+## Endpoints
+
+Returns the Address, ABI, and Bytecode of Token.sol as a JSON
+
+```
+/tokenContract
+```
+
+Returns the Address, ABI, and Bytecode of TTBank.sol as a JSON
+
+```
+/tokenContract
+```
+
 ## Examples
 
 - [JavaScript GET Request](docs/javascript.md)

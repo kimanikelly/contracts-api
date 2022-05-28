@@ -13,8 +13,9 @@ const app = express();
 // Defines the port the Express server will serve on
 const port = process.env.PORT || 3001;
 
+// The home endpoint returns the endpoints for /tokenContract and /ttBank
 app.get("/", (req, res) => {
-  res.json({
+  res.status(200).json({
     tokenEndpoint: "/tokenContract",
     ttBankEndpoint: "/ttBank",
   });
@@ -22,7 +23,7 @@ app.get("/", (req, res) => {
 
 // GET request to return the address, abi, and bytecode of Token.sol
 app.get("/tokenContract", (req, res) => {
-  res.json({
+  res.status(200).json({
     addresses: {
       rinkeby: rinkebyAddress.token,
     },
