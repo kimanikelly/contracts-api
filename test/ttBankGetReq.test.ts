@@ -37,10 +37,10 @@ describe("/ttBank GET Request", () => {
       expect(contract.addresses.rinkeby).to.equal(rinkebyAddress.ttBank);
     });
 
-    // it("Should get the abi for Token.sol", async () => {
-    //   // The /tokenContract endpoint should return the same abi packaged in @kimanikelly/core-contracts
-    //   expect(contract.abi).to.eql(Token__factory.abi);
-    // });
+    it("Should get the ABI for TTBank.sol", async () => {
+      // The /ttBank endpoint should return the same ABI packaged in @kimanikelly/core-contracts
+      expect(contract.abi).to.eql(TTBank__factory.abi);
+    });
 
     // it("Should get the bytecode for Token.sol", async () => {
     //   // The /tokenContract endpoint should return the same bytecode pacakged in @kimanikelly/core-contracts
