@@ -15,6 +15,7 @@ import { fetchContractData } from "./utils";
 
 describe("/tokenContract GET Request", () => {
   let contract: any;
+
   let provider: any;
 
   before(async () => {
