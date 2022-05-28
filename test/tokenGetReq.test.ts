@@ -1,8 +1,5 @@
-// Imports the Axios package and will be used to perform GET requests to the /tokenContract endpoint
-import axios from "axios";
-
 // Imports Ethers.js
-import { ethers, Signer } from "ethers";
+import { ethers } from "ethers";
 
 // Import Chai and the expect libary
 import { expect } from "chai";
@@ -10,31 +7,24 @@ import { expect } from "chai";
 // Imports the Typechain bindings for Token.sol
 import { Token__factory, Token } from "@kimanikelly/core-contracts";
 
-// Imports the Rinkeby Token.sol address
+// Imports the Rinkeby addresses
 import rinkebyAddress from "@kimanikelly/core-contracts/dist/addresses/4.json";
 
-// Imports the SigningKey type from Ethers.js
-import { SigningKey } from "ethers/lib/utils";
-
-const fetchContractData = async () => {
-  // Returns the response from the Axios /tokenContract GET request
-  return (await axios.get("http://localhost:3001/tokenContract")).data;
-};
+// Returns the contract response data based on the endpoint passed in as an argument
+import { fetchContractData } from "./utils";
 
 describe("/tokenContract GET Request", () => {
   let contract: any;
   let provider: any;
-  let signer: Signer;
 
   before(async () => {
-    contract = await fetchContractData();
+    // Token JSON response
+    contract = await fetchContractData("tokenContract");
 
     // Instantiates the Infura provider targeting the Rinkeby testnet
     provider = new ethers.providers.JsonRpcProvider(
       "https://rinkeby.infura.io/v3/b312d7cb723144e2b9741c7462c23b2d"
     );
-
-    signer = ethers.Wallet.createRandom();
   });
 
   describe("#response-data", () => {
@@ -56,7 +46,7 @@ describe("/tokenContract GET Request", () => {
 
   describe("#contract-instances", () => {
     it("Should be able to create a Token.sol contract instance with the Typechain bindings", async () => {
-      //   Creates a Token.sol contract instance with the Typechain bindings returned from @kimanikelly/core-contracts
+      // Creates a Token.sol contract instance with the Typechain bindings returned from @kimanikelly/core-contracts
       const token: Token = Token__factory.connect(
         contract.addresses.rinkeby,
         provider
@@ -68,7 +58,7 @@ describe("/tokenContract GET Request", () => {
     });
 
     it("Should be able to create a Token.sol instance with the address and ABI", async () => {
-      //   Creates a Token.sol contract instance directly with Ethers.js
+      // Creates a Token.sol contract instance directly with Ethers.js
       const token: Token = new ethers.Contract(
         contract.addresses.rinkeby,
         contract.abi,

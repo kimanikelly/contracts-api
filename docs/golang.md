@@ -11,7 +11,7 @@ import (
 
 func main() {
 
-	res, err := http.Get("https://kimanikelly-contractapi.herokuapp.com/tokenContract")
+	res, err := http.Get("https://kimanikelly-contractapi.herokuapp.com/endpoint")
 
 	if err != nil {
 		fmt.Println(err)
