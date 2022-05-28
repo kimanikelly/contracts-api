@@ -34,7 +34,7 @@ Open another terminal and run the command
 npm test
 ```
 
-to begin the unit tests for `http://localhost:3001/tokenContract`.
+to begin the unit tests for `http://localhost:3001/tokenContract` and `http://localhost:3001/ttBank` .
 
 ## Examples
 
