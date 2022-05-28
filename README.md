@@ -38,8 +38,6 @@ to begin the unit tests for `http://localhost:3001/tokenContract`.
 
 ## Examples
 
-- [API Response](docs/response.png)
-
 - [JavaScript GET Request](docs/javascript.md)
 
 - [Python GET Request](docs/python.md)
