@@ -4,7 +4,7 @@
 
 ## Summary
 
-The goal of this API was to bring modularity to the existing codebase and improve scalability between [contracts](https://github.com/kimanikelly/contracts), [@kimanikelly/core-contracts](https://www.npmjs.com/package/@kimanikelly/core-contracts), and future projects by returning the addresses, ABI, and Bytecode of [Token.sol](https://github.com/kimanikelly/contracts/blob/main/contracts/Token.sol) through the [TypeChain Bindings](https://github.com/kimanikelly/contracts/blob/main/typechain/factories/Token__factory.ts).
+The goal of this API was to bring modularity to the existing codebase and improve scalability between [contracts](https://github.com/kimanikelly/contracts), [@kimanikelly/core-contracts](https://www.npmjs.com/package/@kimanikelly/core-contracts), and future projects by returning the addresses, ABI, and Bytecode of the[Smart Contracts](https://github.com/kimanikelly/contracts/tree/main/contracts).
 
 ## Installation
 
