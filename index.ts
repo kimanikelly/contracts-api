@@ -1,7 +1,7 @@
 // Imports the Typechain bindings for Token.sol
-import { Token__factory } from "@kimanikelly/core-contracts";
+import { Token__factory, TTBank__factory } from "@kimanikelly/core-contracts";
 
-// Imports the Rinkeby Token.sol address
+// Imports the Rinkeby addresses for Token.sol and TTBank.sol
 import rinkebyAddress from "@kimanikelly/core-contracts/dist/addresses/4.json";
 
 // Imports Express
@@ -14,10 +14,12 @@ const app = express();
 const port = process.env.PORT || 3001;
 
 app.get("/", (req, res) => {
-  res.send(
-    "Hi, You've reached the homepage of the contract api if you would like to view the Token Addresses, ABI, and Bytecode please target the /tokenContract endpoint."
-  );
+  res.json({
+    tokenEndpoint: "/tokenContract",
+    ttBankEndpoint: "/ttBank",
+  });
 });
+
 // GET request to return the address, abi, and bytecode of Token.sol
 app.get("/tokenContract", (req, res) => {
   res.json({
@@ -26,6 +28,17 @@ app.get("/tokenContract", (req, res) => {
     },
     abi: Token__factory.abi,
     bytecode: Token__factory.bytecode,
+  });
+});
+
+// GET request to return the address, abi, and bytecode of TTBank.sol
+app.get("/ttBank", (req, res) => {
+  res.json({
+    addresses: {
+      rinkeby: rinkebyAddress.ttBank,
+    },
+    abi: TTBank__factory.abi,
+    bytecode: TTBank__factory.bytecode,
   });
 });
 
