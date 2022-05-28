@@ -1,5 +1,7 @@
 # contracts-api
 
+[![Heroku Deploy](https://github.com/kimanikelly/contracts-api/actions/workflows/heroku-deploy.yml/badge.svg)](https://github.com/kimanikelly/contracts-api/actions/workflows/heroku-deploy.yml) [![Node.js CI](https://github.com/kimanikelly/contracts-api/actions/workflows/node.js.yml/badge.svg)](https://github.com/kimanikelly/contracts-api/actions/workflows/node.js.yml)
+
 ## Summary
 
 The goal of this API was to bring modularity to the existing codebase and improve scalability between [contracts](https://github.com/kimanikelly/contracts), [@kimanikelly/core-contracts](https://www.npmjs.com/package/@kimanikelly/core-contracts), and future projects by returning the addresses, ABI, and Bytecode of [Token.sol](https://github.com/kimanikelly/contracts/blob/main/contracts/Token.sol) through the [TypeChain Bindings](https://github.com/kimanikelly/contracts/blob/main/typechain/factories/Token__factory.ts).
