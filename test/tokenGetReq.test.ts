@@ -1,6 +1,3 @@
-// Imports the Axios package and will be used to perform GET requests to the /tokenContract endpoint
-import axios from "axios";
-
 // Imports Ethers.js
 import { ethers, Signer } from "ethers";
 
@@ -10,16 +7,10 @@ import { expect } from "chai";
 // Imports the Typechain bindings for Token.sol
 import { Token__factory, Token } from "@kimanikelly/core-contracts";
 
-// Imports the Rinkeby Token.sol address
+// Imports the Rinkeby addresses
 import rinkebyAddress from "@kimanikelly/core-contracts/dist/addresses/4.json";
 
-// Imports the SigningKey type from Ethers.js
-import { SigningKey } from "ethers/lib/utils";
-
-const fetchContractData = async () => {
-  // Returns the response from the Axios /tokenContract GET request
-  return (await axios.get("http://localhost:3001/tokenContract")).data;
-};
+import { fetchContractData } from "./utils";
 
 describe("/tokenContract GET Request", () => {
   let contract: any;
@@ -27,7 +18,7 @@ describe("/tokenContract GET Request", () => {
   let signer: Signer;
 
   before(async () => {
-    contract = await fetchContractData();
+    contract = await fetchContractData("tokenContract");
 
     // Instantiates the Infura provider targeting the Rinkeby testnet
     provider = new ethers.providers.JsonRpcProvider(
