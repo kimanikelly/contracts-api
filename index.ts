@@ -4,6 +4,9 @@ import { Token__factory, TTBank__factory } from "@kimanikelly/core-contracts";
 // Imports the Rinkeby addresses for Token.sol and TTBank.sol
 import rinkebyAddress from "@kimanikelly/core-contracts/dist/addresses/4.json";
 
+import goerliAddress from "@kimanikelly/core-contracts/dist/addresses/5.json";
+("");
+
 // Imports Express
 import express from "express";
 
@@ -26,6 +29,7 @@ app.get("/tokenContract", (req, res) => {
   res.status(200).json({
     addresses: {
       rinkeby: rinkebyAddress.token,
+      goerli: goerliAddress.token,
     },
     abi: Token__factory.abi,
     bytecode: Token__factory.bytecode,
@@ -37,6 +41,7 @@ app.get("/ttBank", (req, res) => {
   res.status(200).json({
     addresses: {
       rinkeby: rinkebyAddress.ttBank,
+      goerli: goerliAddress.ttBank,
     },
     abi: TTBank__factory.abi,
     bytecode: TTBank__factory.bytecode,
