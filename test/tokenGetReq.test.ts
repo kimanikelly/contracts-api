@@ -29,7 +29,7 @@ describe("/tokenContract GET Request", () => {
 
   describe("#response-data", () => {
     it("Should get the addresses for Token.sol", async () => {
-      // The /tokenContract endpoint should return the same address packaged in @kimanikelly/core-contracts
+      /// The /tokenContract endpoint should return the same address packaged in @kimanikelly/core-contracts
       expect(contract.addresses.goerli).to.equal(goerliAddress.token);
     });
 
