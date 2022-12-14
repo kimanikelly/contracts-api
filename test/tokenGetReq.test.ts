@@ -13,7 +13,7 @@ import goerliAddress from "@kimanikelly/core-contracts/dist/addresses/5.json";
 // Returns the contract response data based on the endpoint passed in as an argument
 import { fetchContractData } from "./utils";
 
-describe("/tokenContract GET Request", () => {
+describe("/token GET Request", () => {
   let contract: any;
   let provider: any;
 
@@ -29,17 +29,17 @@ describe("/tokenContract GET Request", () => {
 
   describe("#response-data", () => {
     it("Should get the addresses for Token.sol", async () => {
-      /// The /tokenContract endpoint should return the same address packaged in @kimanikelly/core-contracts
+      /// The /token endpoint should return the same address packaged in @kimanikelly/core-contracts
       expect(contract.addresses.goerli).to.equal(goerliAddress.token);
     });
 
     it("Should get the abi for Token.sol", async () => {
-      // The /tokenContract endpoint should return the same abi packaged in @kimanikelly/core-contracts
+      // The /token endpoint should return the same abi packaged in @kimanikelly/core-contracts
       expect(contract.abi).to.eql(Token__factory.abi);
     });
 
     it("Should get the bytecode for Token.sol", async () => {
-      // The /tokenContract endpoint should return the same bytecode pacakged in @kimanikelly/core-contracts
+      // The /token endpoint should return the same bytecode pacakged in @kimanikelly/core-contracts
       expect(contract.bytecode).to.equal(Token__factory.bytecode);
     });
   });

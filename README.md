@@ -1,6 +1,6 @@
 # contracts-api
 
-[![Heroku Deploy](https://github.com/kimanikelly/contracts-api/actions/workflows/heroku-deploy.yml/badge.svg)](https://github.com/kimanikelly/contracts-api/actions/workflows/heroku-deploy.yml) [![Node.js CI](https://github.com/kimanikelly/contracts-api/actions/workflows/node.js.yml/badge.svg)](https://github.com/kimanikelly/contracts-api/actions/workflows/node.js.yml)
+[![Node.js CI](https://github.com/kimanikelly/contracts-api/actions/workflows/node.js.yml/badge.svg)](https://github.com/kimanikelly/contracts-api/actions/workflows/node.js.yml)
 
 ## Summary
 
@@ -34,14 +34,14 @@ Open another terminal and run the command
 npm test
 ```
 
-to begin the unit tests for `http://localhost:3001/tokenContract` and `http://localhost:3001/ttBank` .
+to begin the unit tests for `http://localhost:3001/token` and `http://localhost:3001/ttBank` .
 
 ## Endpoints
 
 Returns the Address, ABI, and Bytecode of Token.sol as a JSON
 
 ```
-/tokenContract
+/token
 ```
 
 Returns the Address, ABI, and Bytecode of TTBank.sol as a JSON
