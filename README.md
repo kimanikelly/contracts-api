@@ -6,6 +6,12 @@
 
 The goal of this API was to bring modularity to the existing codebase and improve scalability between [contracts](https://github.com/kimanikelly/contracts), [@kimanikelly/core-contracts](https://www.npmjs.com/package/@kimanikelly/core-contracts), and future projects by returning the addresses, ABI, and Bytecode of the [Smart Contracts](https://github.com/kimanikelly/contracts/tree/main/contracts).
 
+## AWS EC2 Hosted API
+
+```
+http://ec2-34-203-42-249.compute-1.amazonaws.com/
+```
+
 ## Installation
 
 ```
