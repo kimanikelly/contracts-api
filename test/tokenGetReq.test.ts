@@ -19,7 +19,7 @@ describe("/token GET Request", () => {
 
   before(async () => {
     // Token JSON response
-    contract = await fetchContractData("tokenContract");
+    contract = await fetchContractData("token");
 
     // Instantiates the Infura provider targeting the Goerli testnet
     provider = new ethers.providers.JsonRpcProvider(
