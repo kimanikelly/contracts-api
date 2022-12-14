@@ -4,7 +4,7 @@
 const axios = require("axios");
 
 axios
-  .get("https://kimanikelly-contractapi.herokuapp.com/endpoint")
+  .get("http://ec2-34-203-42-249.compute-1.amazonaws.com/endpoint")
   .then((res) => {
     console.log(res);
   })
