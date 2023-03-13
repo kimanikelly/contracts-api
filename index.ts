@@ -10,8 +10,12 @@ import goerliAddress from "@kimanikelly/core-contracts/dist/addresses/5.json";
 // Imports Express
 import express from "express";
 
+import cors from "cors";
+
 // Initializes Express
 const app = express();
+
+app.use(cors);
 
 // Defines the port the Express server will serve on
 const port = process.env.PORT || 3001;
